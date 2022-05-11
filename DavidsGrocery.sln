@@ -5,9 +5,9 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DavidsGrocery", "DavidsGrocery\DavidsGrocery.csproj", "{7ECD29D0-FBE2-4E33-BCD1-76CF754E40B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidsGrocery.Repository", "DavidsGrocery.Repository\DavidsGrocery.Repository.csproj", "{0AE4D6F6-6A40-4199-96C8-002C4C02C747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DavidsGrocery.Repository", "DavidsGrocery.Repository\DavidsGrocery.Repository.csproj", "{0AE4D6F6-6A40-4199-96C8-002C4C02C747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidsGrocery.Model", "DavidsGrocery.Model\DavidsGrocery.Model.csproj", "{2DD83434-FAF1-4CFF-A640-EE665A5C4F78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DavidsGrocery.Model", "DavidsGrocery.Model\DavidsGrocery.Model.csproj", "{2DD83434-FAF1-4CFF-A640-EE665A5C4F78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

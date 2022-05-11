@@ -1,12 +1,13 @@
 using DavidsGrocery.Repository;
 using DavidsGrocery.Repository.Interfaces;
+using DavidsGrocery.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DavidsGrocery.Controllers
+namespace DavidsGrocery
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("[controller]")]
     public class CartController : ControllerBase
     {
@@ -51,10 +52,5 @@ namespace DavidsGrocery.Controllers
             await _cartRepository.ResetCarts();
             return Ok();
         }
-    }
-
-    public class ItemViewModel
-    {
-        public string ItemId { get; set; }
     }
 }

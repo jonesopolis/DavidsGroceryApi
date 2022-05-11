@@ -1,6 +1,7 @@
-using DavidsGrocery;
 using DavidsGrocery.Repository;
+using DavidsGrocery.Repository.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +30,17 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddSingleton<CartRepository>(new CartRepository());
+builder.Services.AddSingleton(new CosmosClient(builder.Configuration.GetConnectionString("CosmosDb"), new CosmosClientOptions()
+{
+    SerializerOptions = new CosmosSerializationOptions()
+    {
+        PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
+    }
+
+}));
+
+builder.Services.AddTransient<ICartRepository, CartRepository>();
+builder.Services.AddTransient<IInventoryRepository, InventoryRepository>();
 
 var app = builder.Build();
 

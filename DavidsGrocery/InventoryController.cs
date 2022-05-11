@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DavidsGrocery.Repository.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DavidsGrocery.Controllers
 {
@@ -6,15 +7,24 @@ namespace DavidsGrocery.Controllers
     [Route("[controller]")]
     public class InventoryController : ControllerBase
     {
-        public InventoryController()
-        {
+        private readonly IInventoryRepository _inventoryRepository;
 
+        public InventoryController(IInventoryRepository inventoryRepository)
+        {
+            _inventoryRepository = inventoryRepository;
         }
 
         public IActionResult Get()
         {
             var json = System.IO.File.ReadAllText("inventory.json");
             return Ok(json);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
+        {
+            await _inventoryRepository.ResetInventory();
+            return Ok();
         }
     }
 }

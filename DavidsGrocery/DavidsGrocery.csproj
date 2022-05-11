@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.4" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.27.0" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.24.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DavidsGrocery.Repository\DavidsGrocery.Repository.csproj" />
   </ItemGroup>
 
 </Project>

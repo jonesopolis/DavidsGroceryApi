@@ -45,12 +45,5 @@ namespace DavidsGrocery
             await _cartRepository.DeleteUserCart(User.Identity.Name);
             return Ok();
         }
-
-        [HttpGet("superdelete")]
-        public async Task<IActionResult> SuperDelete()
-        {
-            await _cartRepository.ResetCarts();
-            return Ok();
-        }
     }
 }

@@ -32,7 +32,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Allow SPA", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins(builder.Configuration.GetSection("AllowedOrigins").Value.Split(","))
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -44,7 +44,6 @@ builder.Services.AddSingleton(new CosmosClient(builder.Configuration.GetConnecti
     {
         PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
     }
-
 }));
 
 builder.Services.AddTransient<ICartRepository, CartRepository>();

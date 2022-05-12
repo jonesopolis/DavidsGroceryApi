@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DavidsGrocery
 {
+
     [ApiController]
     [Authorize]
     [Route("[controller]")]

@@ -4,6 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/5f27cfc6-afec-46d5-b60d-cafa081c9fcb/resourceGroups/DavidsGrocery/providers/microsoft.insights/components/DavidGroceryAppInsights</ApplicationInsightsResourceId>
+    <UserSecretsId>ed7675e8-8327-4b3f-9061-ee05a54874c2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.4" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.27.0" />

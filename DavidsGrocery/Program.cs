@@ -54,7 +54,12 @@ builder.Services.AddSingleton(new CosmosClient(builder.Configuration.GetConnecti
 builder.Services.AddTransient<ICartRepository, CartRepository>();
 builder.Services.AddTransient<IInventoryRepository, InventoryRepository>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+app.UseDeveloperExceptionPage();
 
 if (!app.Environment.IsDevelopment())
 {
@@ -68,5 +73,15 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapHub<InventoryHub>("/hubs/inventory");
+
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
 
 app.Run();
